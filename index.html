@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
+        />
+        <title>Movie APP</title>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <header>
+            <div class="navbar navbar-dark bg-dark shadow-sm">
+                <div class="container">
+                    <a href="#" class="navbar-brand d-flex align-items-center">
+                        <strong>MOVIE</strong>
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasRight"
+            aria-labelledby="offcanvasRightLabel"
+        >
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">FAVORITE</h5>
+                <button
+                    type="button"
+                    class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div id="favorite-movies" class="offcanvas-body">
+                <div class="col-12 p-2">
+                    <div class="card shadow-sm">
+                        <img
+                            src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                        />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            stroke="red"
+                            fill="red"
+                            width="50"
+                            height="50"
+                            class="bi bi-heart-fill position-absolute p-2"
+                            viewBox="0 -2 18 22"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                            />
+                        </svg>
+                        <div class="card-body">
+                            <p class="card-text truncate">
+                                In 1970s London amidst the punk rock revolution,
+                                a young grifter named Estella is determined to
+                                make a name for herself with her designs. She
+                                befriends a pair of young thieves who appreciate
+                                her appetite for mischief, and together they are
+                                able to build a life for themselves on the
+                                London streets. One day, Estella’s flair for
+                                fashion catches the eye of the Baroness von
+                                Hellman, a fashion legend who is devastatingly
+                                chic and terrifyingly haute. But their
+                                relationship sets in motion a course of events
+                                and revelations that will cause Estella to
+                                embrace her wicked side and become the raucous,
+                                fashionable and revenge-bent Cruella.
+                            </p>
+                            <div
+                                class="
+                                    d-flex
+                                    justify-content-between
+                                    align-items-center
+                                "
+                            >
+                                <small class="text-muted">2021-05-26</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <section id="random-movie" class="py-5 text-center container-fluid">
+                <div class="row py-lg-5">
+                    <div
+                        class="col-lg-6 col-md-8 mx-auto"
+                        style="background-color: #2525254f"
+                    >
+                        <h1 id="random-movie-name" class="fw-light text-light">Cruella</h1>
+                        <p id="random-movie-description" class="lead text-white">
+                            In 1970s London amidst the punk rock revolution, a
+                            young grifter named Estella is determined to make a
+                            name for herself with her designs. She befriends a
+                            pair of young thieves who appreciate her appetite
+                            for mischief, and together they are able to build a
+                            life for themselves on the London streets. One day,
+                            Estella’s flair for fashion catches the eye of the
+                            Baroness von Hellman, a fashion legend who is
+                            devastatingly chic and terrifyingly haute. But their
+                            relationship sets in motion a course of events and
+                            revelations that will cause Estella to embrace her
+                            wicked side and become the raucous, fashionable and
+                            revenge-bent Cruella.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <div
+                class="
+                    container-fluid
+                    d-flex
+                    bg-light
+                    justify-content-center
+                    p-2
+                "
+            >
+                <div
+                    class="btn-group"
+                    id="button-wrapper"
+                    srole="group"
+                    aria-label="Basic radio toggle button group"
+                >
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="btnradio"
+                        id="popular"
+                        autocomplete="off"
+                        checked
+                    />
+                    <label class="btn btn-outline-dark" for="popular"
+                        >Popular</label
+                    >
+
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="btnradio"
+                        id="upcoming"
+                        autocomplete="off"
+                    />
+                    <label class="btn btn-outline-dark" for="upcoming"
+                        >Upcoming</label
+                    >
+
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="btnradio"
+                        id="top_rated"
+                        autocomplete="off"
+                    />
+                    <label class="btn btn-outline-dark" for="top_rated"
+                        >Top rated</label
+                    >
+                </div>
+            </div>
+            <div class="container-fluid d-flex bg-light justify-content-center">
+                <form
+                    class="form-inline col-6 px-2 d-flex"
+                    onSubmit="return false;"
+                >
+                    <input
+                        class="form-control m-2"
+                        type="search"
+                        placeholder="Search"
+                        id="search"
+                    />
+                    <button class="btn btn-dark m-2" type="button" id="submit">
+                        Search
+                    </button>
+                </form>
+            </div>
+
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div id="film-container" class="row">
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="red"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="#ff000078"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="red"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="#ff000078"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="red"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="#ff000078"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="red"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="#ff000078"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="red"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="#ff000078"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="red"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="#ff000078"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="red"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="#ff000078"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="red"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-12 p-2">
+                            <div class="card shadow-sm">
+                                <img
+                                    src="https://image.tmdb.org/t/p/original//rTh4K5uw9HypmpGslcKd4QfHl93.jpg"
+                                />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    stroke="red"
+                                    fill="#ff000078"
+                                    width="50"
+                                    height="50"
+                                    class="bi bi-heart-fill position-absolute p-2"
+                                    viewBox="0 -2 18 22"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                                    />
+                                </svg>
+                                <div class="card-body">
+                                    <p class="card-text truncate">
+                                        In 1970s London amidst the punk rock revolution,
+                                        a young grifter named Estella is determined to
+                                        make a name for herself with her designs. She
+                                        befriends a pair of young thieves who appreciate
+                                        her appetite for mischief, and together they are
+                                        able to build a life for themselves on the
+                                        London streets. One day, Estella’s flair for
+                                        fashion catches the eye of the Baroness von
+                                        Hellman, a fashion legend who is devastatingly
+                                        chic and terrifyingly haute. But their
+                                        relationship sets in motion a course of events
+                                        and revelations that will cause Estella to
+                                        embrace her wicked side and become the raucous,
+                                        fashionable and revenge-bent Cruella.
+                                    </p>
+                                    <div
+                                        class="
+                                            d-flex
+                                            justify-content-between
+                                            align-items-center
+                                        "
+                                    >
+                                        <small class="text-muted">2021-05-26</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div
+                    class="
+                        d-flex
+                        justify-content-center
+                        align-items-center
+                        pt-4
+                    "
+                >
+                    <button
+                        id="load-more"
+                        type="button"
+                        class="btn btn-lg btn-outline-success"
+                    >
+                        Load more
+                    </button>
+                </div>
+            </div>
+        </main>
+        <script src="dist/bundle.js"></script>
+    </body>
+</html>
