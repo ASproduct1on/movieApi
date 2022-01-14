@@ -10,6 +10,6 @@
 
 Open http://localhost:9090/ to view it in the browser.
 
-## Check typescript errors
+## Check typescript and linter errors
 
 `npm run lint`
