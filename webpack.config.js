@@ -37,8 +37,7 @@ module.exports = {
     },
     mode: 'development',
     devServer: {
-        inline: true,
-        contentBase: path.join(__dirname, ''),
+        static: path.join(__dirname, ''),
         port: 9090
     },
     devtool: 'source-map',
