@@ -1,15 +1,17 @@
-# MOVIE APP
+# JS for everyone
 
-## Instalation
+## 🏃‍♂️ Simple start
 
-`npm install`
+1. **`npm install`** at the root
+2. **`npm run start`** at the root
+3. open **`http://localhost:8000/`**
 
-## Run project
+## 🖌️ Check typescript and linter errors
 
-`npm run start`
+**`npm run lint`** at the root
 
-Open http://localhost:9090/ to view it in the browser.
+## 💡 PS
 
-## Check typescript and linter errors
+The project has a [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) set up, so use it to format the code.
 
-`npm run lint`
+## 🤞 Good luck
