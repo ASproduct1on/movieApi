@@ -38,7 +38,7 @@ module.exports = {
     mode: 'development',
     devServer: {
         static: path.join(__dirname, ''),
-        port: 9090
+        port: 8000
     },
     devtool: 'source-map',
 };
